@@ -1,0 +1,22 @@
+{
+  "name": "meetingassistant",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local-first meeting recorder",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json && swiftc -o dist/systemAudio src/audio/systemAudio.swift -framework ScreenCaptureKit -framework AVFoundation",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "start": "npm run build && electron .",
+    "test": "npm run build && node --test dist/test/*.test.js"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "electron": "44.7.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^4.3.1",
+    "@ricky0123/vad-node": "^0.0.3"
+  }
+}

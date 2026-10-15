@@ -1,0 +1,55 @@
+:root { font-family: 'Avenir Next', 'Helvetica Neue', sans-serif; color: #202a29; background: #f5f5f2; letter-spacing: 0; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { min-height: 100vh; }
+header { height: 68px; padding: 0 clamp(24px, 5vw, 70px); display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #d8ded9; background: #fff; }
+.brand { font-weight: 800; font-size: 13px; }
+.local, .section-label { font-size: 11px; font-weight: 700; color: #43836d; }
+.workspace { max-width: 840px; margin: 72px auto; padding: 0 24px; }
+h1 { font-family: Georgia, serif; font-size: clamp(28px, 4vw, 44px); font-weight: 500; margin: 12px 0 24px; }
+p { color: #586562; }
+.controls { border-top: 1px solid #d8ded9; border-bottom: 1px solid #d8ded9; padding: 24px 0; display: grid; gap: 14px; }
+.controls > label:first-child { font-size: 13px; font-weight: 700; }
+select { width: min(100%, 440px); padding: 11px; border: 1px solid #a9b7ae; border-radius: 4px; background: #fff; font: inherit; }
+.sources { display: flex; flex-wrap: wrap; gap: 12px 28px; font-size: 13px; color: #52635e; }
+.capture-system { display: flex; align-items: center; gap: 9px; font-size: 13px; line-height: 1.4; }
+.capture-system input { width: 18px; height: 18px; accent-color: #176d51; flex: none; }
+.input-signal { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12px; color: #52635e; }
+.input-signal label { font-weight: 700; }
+#input-level { width: min(100%, 220px); height: 14px; }
+#signal-status { min-width: 170px; }
+.meeting-picker { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+.meeting-picker label { font-size: 13px; font-weight: 700; }
+.meeting-picker select { width: min(100%, 580px); }
+.consent { display: flex; align-items: center; gap: 9px; font-size: 13px; line-height: 1.4; margin-top: 14px; }
+.consent input { width: 18px; height: 18px; accent-color: #176d51; flex: none; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+button { min-width: 135px; height: 42px; border: 1px solid #176d51; border-radius: 4px; background: #176d51; color: #fff; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+#stop { background: #fff; color: #176d51; }
+time { font-variant-numeric: tabular-nums; margin-left: auto; font-size: 21px; }
+.destination { padding-top: 30px; }
+#saved-path { word-break: break-all; font-size: 13px; }
+.destination button, #delete-meeting { background: #fff; color: #176d51; }
+.players { display: grid; gap: 16px; margin: 20px 0 26px; }
+.players label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+.players audio { display: block; width: min(100%, 520px); }
+#playback[hidden], #mic-player[hidden], #system-player[hidden] { display: none; }
+.transcript { border-top: 1px solid #d8ded9; margin-top: 26px; padding: 26px 0 80px; }
+.transcript-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.transcript h2 { font: 500 26px Georgia, serif; margin: 8px 0 0; }
+#open-latest { min-width: 130px; background: #fff; color: #176d51; }
+#transcript-status { font-size: 13px; line-height: 1.6; }
+.transcript-views { display: inline-flex; max-width: 100%; margin: 8px 0 16px; border: 1px solid #176d51; border-radius: 4px; overflow: hidden; }
+.transcript-views[hidden], .transcript-views button[hidden] { display: none; }
+.transcript-views button { min-width: 0; width: 105px; height: 36px; border: 0; border-right: 1px solid #176d51; border-radius: 0; background: #fff; color: #176d51; font-size: 12px; }
+.transcript-views button:last-child { border-right: 0; }
+.transcript-views button[aria-pressed="true"] { background: #176d51; color: #fff; }
+.transcript-row { border-top: 1px solid #e2e8e2; padding: 17px 0; }
+.transcript-attribution { color: #176d51; font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.transcript-row p { color: #202a29; margin: 8px 0 0; line-height: 1.55; overflow-wrap: anywhere; }
+.ai-analysis { border-top: 1px solid #d8ded9; margin-top: 28px; padding-top: 20px; }
+.ai-analysis h2 { font-size: 22px; }
+.ai-analysis p { font-size: 13px; line-height: 1.5; }
+#ai-notes { white-space: pre-wrap; overflow-wrap: anywhere; font: 14px/1.6 'Avenir Next', sans-serif; }
+@media (max-width: 520px) { .workspace { margin: 36px auto; } time { width: 100%; margin: 6px 0 0; } .transcript-heading { align-items: flex-start; flex-wrap: wrap; } }

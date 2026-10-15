@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; media-src file:; connect-src 'none'">
+  <title>Meeting Assistant</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <header><div class="brand">MEETING ASSISTANT</div><span class="local">LOCAL RECORDING</span></header>
+    <section class="workspace">
+      <div class="section-label">NEW SESSION</div>
+      <h1>Record a meeting</h1>
+      <p id="status" role="status">Connecting...</p>
+      <div class="controls">
+        <label for="device">Microphone</label>
+        <select id="device" aria-label="Microphone input"><option value="">Default microphone</option></select>
+        <label class="capture-system"><input id="capture-system" type="checkbox" checked> Capture system playback (browser tabs, calls, other apps; site unknown)</label>
+        <div class="sources"><span id="microphone-status">Microphone: stopped</span><span id="system-status">System audio: stopped</span></div>
+        <div class="input-signal"><label for="input-level">Mic input level</label>
+          <meter id="input-level" min="0" max="1" low="0.12" high="0.9" optimum="0.4" value="0">0</meter>
+          <span id="signal-status">Record to check input</span></div>
+        <label class="consent"><input id="consent" type="checkbox"> I confirm that everyone being recorded has consented.</label>
+        <div class="actions"><button id="start" disabled>Start recording</button><button id="stop" disabled>Stop recording</button><time id="timer">00:00:00</time></div>
+      </div>
+      <div class="destination"><div class="section-label">SAVED MEETING FOLDER</div><p id="saved-path">Documents/Meeting Assistant/meetings</p><button id="reveal" type="button">Show in Finder</button></div>
+      <div class="players"><div id="mic-player" hidden><label for="playback">Mixed microphone recording</label><audio id="playback" controls preload="metadata" aria-label="Meeting microphone recording"></audio></div>
+        <div id="system-player" hidden><label for="system-playback">Mixed system playback (app and site unknown)</label><audio id="system-playback" controls preload="metadata" aria-label="Meeting system audio recording"></audio></div></div>
+      <section class="transcript" aria-labelledby="transcript-heading">
+        <div class="transcript-heading"><div><div class="section-label">TRANSCRIPT</div>
+        <h2 id="transcript-heading">Meeting audio</h2></div><button id="open-latest" type="button">Latest meeting</button></div>
+        <div class="meeting-picker"><label for="meeting-select">Saved meetings</label>
+          <select id="meeting-select" aria-label="Saved meetings"><option value="">No saved meetings</option></select>
+          <button id="delete-meeting" type="button" disabled>Delete meeting</button></div>
+        <p id="transcript-status" role="status">Record a meeting to see its transcript here.</p>
+        <div id="transcript-views" class="transcript-views" role="group" aria-label="Transcript source" hidden>
+          <button type="button" data-source="all" aria-pressed="true">All</button>
+          <button type="button" data-source="microphone" aria-pressed="false">Microphone</button>
+          <button type="button" data-source="system" aria-pressed="false">System</button>
+        </div>
+        <div id="transcript-lines" aria-live="polite"></div>
+        <section class="ai-analysis" aria-labelledby="ai-heading"><h2 id="ai-heading">AI notes</h2>
+          <p>Optional: sends the complete saved transcript text to the configured GLM service. Audio stays on this Mac. Do not send confidential meetings without permission.</p>
+          <button id="analyze" type="button" disabled>Analyze transcript with AI</button>
+          <p id="ai-status" role="status"></p><pre id="ai-notes" hidden></pre></section>
+      </section>
+    </section>
+  </main>
+  <script src="../../dist/renderer/renderer.js"></script>
+</body>
+</html>
